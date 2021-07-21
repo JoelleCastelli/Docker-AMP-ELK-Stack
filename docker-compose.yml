@@ -67,6 +67,16 @@ services:
     depends_on:
       - elasticsearch
 
+  web:
+    environment:
+      - DEBUG=1
+    build: site
+    container_name: apache-docker
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
+
   database:
     image: mysql:5.7
     container_name: mysql-docker
