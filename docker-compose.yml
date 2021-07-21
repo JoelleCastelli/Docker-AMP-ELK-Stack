@@ -76,6 +76,8 @@ services:
       - ./www:/var/www/html
     depends_on:
       - database
+    links:
+      - redis:redis-docker
 
   database:
     image: mysql:5.7
@@ -114,8 +116,6 @@ services:
     container_name: redis-docker
     ports:
       - "6379:6379"
-    depends_on:
-      - web
 
 networks:
   elk:
