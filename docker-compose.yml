@@ -2,6 +2,7 @@ version: '3.2'
 
 services:
   elasticsearch:
+    container_name: elasticsearch-docker
     build:
       context: elasticsearch/
       args:
@@ -24,6 +25,7 @@ services:
       - elk
 
   logstash:
+    container_name: logstash-docker
     build:
       context: logstash/
       args:
@@ -48,6 +50,7 @@ services:
       - elasticsearch
 
   kibana:
+    container_name: kibana-docker
     build:
       context: kibana/
       args:
@@ -86,11 +89,8 @@ services:
     image: docker.io/mailserver/docker-mailserver:latest
     hostname: <HOSTNAME> # <-- CHANGE THIS
     domainname: <DOMAINNAME> # <-- CHANGE THIS
-    container_name: mailserver
+    container_name: mailserver-docker
     # env_file: mailserver.env
-    # To avoid conflicts with yaml base-60 float, DO NOT remove the quotation marks.
-    # More information about the mailserver ports:
-    # https://docker-mailserver.github.io/docker-mailserver/edge/config/security/understanding-the-ports/
     ports:
       - "25:25"    # SMTP  (explicit TLS => STARTTLS)
       - "143:143"  # IMAP4 (explicit TLS => STARTTLS)
