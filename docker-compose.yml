@@ -109,6 +109,14 @@ services:
         - 1025:1025 # smtp server
         - 8025:8025 # web ui
 
+  redis:
+    image: "redis:latest"
+    container_name: redis-docker
+    ports:
+      - "6379:6379"
+    depends_on:
+      - web
+
 networks:
   elk:
     driver: bridge
