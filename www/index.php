@@ -25,5 +25,3 @@ foreach ($contributors as $contributor) {
 }
 echo "</ul>";
 echo "</div>";
-
-?>
