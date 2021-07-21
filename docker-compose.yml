@@ -68,12 +68,12 @@ services:
       - elasticsearch
 
   web:
-    environment:
-      - DEBUG=1
     build: site
     container_name: apache-docker
     ports:
       - "8080:80"
+    volumes:
+      - ./www:/var/www/html
     depends_on:
       - database
 
