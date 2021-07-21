@@ -102,6 +102,7 @@ services:
 
   mailhog:
       image: mailhog/mailhog
+      container_name: mailhog-docker
       logging:
         driver: 'none'  # disable saving logs
       ports:
